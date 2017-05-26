@@ -1,0 +1,10 @@
+FactoryGirl.define do
+  # Define your Spree extensions Factories within this file to enable applications, and other extensions to use and override them.
+  #
+  # Example adding this to your spec_helper will load these Factories for use:
+  # require 'spree_videos/factories'
+  factory :video, :class => Spree::Video do |f|
+      youtube_ref 'oUKbtfL4wqk'
+      f.watchable { |p| p.association(:product) }
+  end
+end

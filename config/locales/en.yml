@@ -1,11 +1,7 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
 en:
-  video: Video
-  videos: Videos
-  new_video: New Video
-  youtube_ref: YouTube ID
-  product_video_index: "%{name} Videos"
-  
-  helpers:
-    label:
-      video:
-        youtube_ref: YouTube Link or Reference
+  spree:
+    spree_video:
+      videos: Videos

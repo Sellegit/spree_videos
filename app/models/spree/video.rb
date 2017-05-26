@@ -1,13 +1,17 @@
 module Spree
   class Video < ActiveRecord::Base
     belongs_to :watchable, :polymorphic => true, :touch => true
+    acts_as_list scope: [:watchable_id, :watchable_type]
 
-    attr_accessible :youtube_ref
     validates_presence_of :youtube_ref
     validates_uniqueness_of :youtube_ref, :scope => [:watchable_id, :watchable_type]
 
     def youtube_data
-      YouTubeIt::Client.new.video_by(youtube_ref)
+      Yt::Video.new id: youtube_ref
+    end
+
+    def embed_html
+      youtube_data.embed_html.gsub(/#{youtube_ref}/, "#{youtube_ref}?autoplay=0&showinfo=0&controls=1&loop=1&playlist=#{youtube_ref}")
     end
   
     after_validation do
