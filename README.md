@@ -27,7 +27,18 @@ Display YouTube video(s) on your product page.
   bundle exec rails g spree_videos:install
   ```
 
-4. Restart your server
+4. Configuration
+  ```ruby
+  Yt.configure do |config|
+    config.api_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+    # if you need
+    config.client_id = 'xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com'
+    config.client_secret = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  end
+  ```
+
+5. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
 
